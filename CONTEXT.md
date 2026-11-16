@@ -2098,3 +2098,882 @@ TwinCercle হবে একটি Identity-first Web3 Communication Ecosystem।
 Tap to set up
 
 একটি কথা মনে রেখো: আমাদের লক্ষ্য দ্রুত একটি Demo তৈরি করা নয়; এমন একটি ভিত্তি তৈরি করা, যার ওপর দাঁড়িয়ে TwinCercle-কে ধাপে ধাপে একটি বাস্তব, নিরাপদ এবং দীর্ঘমেয়াদি Web3 Ecosystem-এ পরিণত করা সম্ভব।
+
+
+
+---
+
+# ══════════════════════════════════════════════
+# EXTENSION VOLUME — PART 14 থেকে PART 29
+# ══════════════════════════════════════════════
+
+### PART 14 — এই Extension সম্পর্কে (কীভাবে পড়বে ও ব্যবহার করবে)
+
+উপরের PART 1 থেকে PART 13 পর্যন্ত মূল ডকুমেন্টের কোনো শব্দ বাদ দেওয়া হয়নি, কোনো লাইন পরিবর্তন করা হয়নি। শুধু নাম Wincercle থেকে TwinCercle করা হয়েছে। এই Extension Volume সম্পূর্ণ নতুন সংযোজন।
+
+Extension-এর উদ্দেশ্য চারটি:
+
+* মূল ডকুমেন্টের অমীমাংসিত দ্বন্দ্ব ও ফাঁকগুলো চিহ্নিত করে সমাধান-প্রস্তাব দেওয়া।
+* ২০২৬-এর নভেম্বরে অফিসিয়াল ডকুমেন্টেশন ও নির্ভরযোগ্য সূত্র থেকে যাচাই করা প্রযুক্তিগত তথ্য যোগ করা।
+* যেসব বিষয় মূল ডকুমেন্টে ছিল না (থ্রেট মডেল, কী-লাইফসাইকেল, প্রাইভেসি, অ্যাবিউজ, ইঞ্জিনিয়ারিং স্ট্যান্ডার্ড, টেস্ট ক্যাটালগ, ব্যাকলগ) সেগুলো সম্পূর্ণ করা।
+* PART 10-এর Master Prompt-এর সঙ্গে একসঙ্গে ব্যবহারযোগ্য একটি Addendum Prompt (PART 29) দেওয়া।
+
+### Precedence Rule (অগ্রাধিকারের নিয়ম)
+
+* মূল PART 1–13 হলো Product Vision ও মূল নির্দেশনা। এটি অপরিবর্তিত থাকবে।
+* কোনো বিষয়ে মূল অংশ অস্পষ্ট বা পরস্পরবিরোধী হলে, এই Extension-এর স্পষ্ট "Resolution" বা "Decision Gate" প্রযোজ্য হবে।
+* Extension-এ যা "Proposed" বা "Decision Gate" হিসেবে চিহ্নিত, সেটি প্রজেক্ট মালিকের অনুমোদন ছাড়া চূড়ান্ত ধরা যাবে না।
+* কোনো Extension অংশ মূল Absolute Security Rules (PART 8.1) বা Master Prompt-এর Strict AI Coding Rules (SECTION 17) শিথিল করতে পারবে না। শুধু আরও কঠোর করতে পারবে।
+
+### Status Label-এর অর্থ
+
+| Label | অর্থ |
+| ----- | ---- |
+| VERIFIED | ২০২৬-এর নভেম্বরে অফিসিয়াল ডকুমেন্টেশন বা নির্ভরযোগ্য সূত্রে পাওয়া গেছে। বাস্তবায়নের আগে আবার পরীক্ষা করতে হবে। |
+| UNVERIFIED | সূত্রগুলোর মধ্যে অসঙ্গতি আছে বা নিশ্চিত হওয়া যায়নি। Spike (PART 25) দিয়ে যাচাই না করে নির্ভর করা যাবে না। |
+| PROPOSED | আমার সুপারিশ। মালিকের অনুমোদন প্রয়োজন। |
+| DECISION GATE | এই সিদ্ধান্ত না নিয়ে পরবর্তী ধাপে যাওয়া যাবে না। |
+
+### নতুন ফাইল-কাঠামোর সুপারিশ
+
+এই বিশাল ডকুমেন্টকে সরাসরি AI টুলে একসঙ্গে না দিয়ে নিচের কাঠামোয় ভাগ করা ভালো। এতে AI-এর Context পরিষ্কার থাকে।
+
+| ফাইল | বিষয়বস্তু |
+| ---- | ---------- |
+| CLAUDE.md বা AGENTS.md | PART 10 Master Prompt + PART 29 Addendum (সংক্ষেপিত, নিয়মভিত্তিক) |
+| docs/PRODUCT_SPEC.md | PART 1, 3, 5 |
+| docs/ARCHITECTURE.md | PART 2, 4, 7, 15, 16 |
+| docs/SECURITY.md | PART 8, 17, 18, 22 |
+| docs/PRIVACY.md | PART 19, 20 |
+| docs/DESIGN_SYSTEM.md | PART 5, 23 |
+| docs/ROADMAP.md | PART 6, 25 |
+| docs/TESTING.md | PART 26 |
+| docs/DECISIONS.md | PART 16 (ADR) |
+| docs/RISKS.md | PART 27 |
+
+### PART 15 — যাচাইকৃত প্রযুক্তিগত তথ্য (VERIFIED FINDINGS)
+
+যাচাইয়ের তারিখ: ১৬ নভেম্বর ২০২৬। নিচের তথ্যগুলো অফিসিয়াল XMTP ডকুমেন্টেশন, XMTP Improvement Proposals, এবং WebAuthn, PWA সংক্রান্ত নির্ভরযোগ্য সূত্র থেকে নেওয়া। SDK ও ব্রাউজার দ্রুত বদলায়, তাই বাস্তবায়নের দিন Release Notes আবার দেখা বাধ্যতামূলক।
+
+### 15.1 XMTP
+
+| # | তথ্য | Status |
+| - | ---- | ------ |
+| X1 | XMTP-এর প্রাথমিক Identifier এখন Ethereum Address নয়, **Inbox ID**। একটি Inbox-এর সঙ্গে একাধিক Identity (Wallet ইত্যাদি) যুক্ত থাকতে পারে। | VERIFIED |
+| X2 | Legacy V2 ও পুরনো V3 SDK-এর সাপোর্ট ২০২৫-এর জুনে শেষ হয়েছে। শুধু stable V3 (MLS-ভিত্তিক) SDK ব্যবহার করতে হবে। | VERIFIED |
+| X3 | একটি Inbox ID-তে সর্বোচ্চ **১০টি Installation** থাকতে পারে। এরপর পুরনো Installation Revoke করতে হয়। Persistent Storage ঠিকমতো না রাখলে অপ্রয়োজনে নতুন Installation তৈরি হয়ে এই সীমা ছুঁয়ে ফেলতে পারে। | VERIFIED |
+| X4 | একটি Inbox ID সর্বোচ্চ **২৫৬টি Inbox Update** (Wallet যোগ/বাদ, Installation যোগ/Revoke) নিতে পারে। | VERIFIED |
+| X5 | Browser SDK-তে `dbEncryptionKey` ব্যবহৃত হয় না। ব্রাউজারের প্রযুক্তিগত সীমাবদ্ধতার কারণে **স্থানীয় ডেটাবেস এনক্রিপ্টেড নয়**। | VERIFIED |
+| X6 | Recovery Identity সবসময় একই Inbox ID-এর সঙ্গে থাকে এবং অন্য Inbox ID-তে পুনঃনির্ধারণ করা যায় না। | VERIFIED |
+| X7 | Smart Contract Wallet (EIP-1271 / EIP-4337) XMTP Identity হতে পারে। | VERIFIED |
+| X8 | Identity Association History সিঙ্ক করতে বর্তমানে Ephemera একটি কেন্দ্রীভূত সার্ভিস চালায় (XMTP-র নিজস্ব Identity পেজ অনুযায়ী)। Decentralization রোডম্যাপে আছে। তাই XMTP ব্যবহার করলেও TwinCercle সম্পূর্ণ সার্ভারহীন নয়, এ কথা প্রচারে স্পষ্ট রাখতে হবে। | VERIFIED (সময়ের সঙ্গে বদলাতে পারে) |
+| X9 | Wallet Linking প্রকাশ্য Identity সম্পর্ক তৈরি করে। "Unlinkable associations" ২০২৬+ রোডম্যাপের বিষয়। যিনি প্রাইভেট থাকতে চান তাঁর পাবলিক Wallet থেকে আলাদা Identity ব্যবহার করা উচিত। | VERIFIED |
+| X10 | **Passkey Identity সাপোর্ট:** পুরনো মাইগ্রেশন ডকুমেন্টে লেখা "passkeys are not yet supported"। XIP-55 secp256r1 Passkey Identity প্রস্তাব করে। নতুন "Extend the identity model" ডকুমেন্টের টেবিলে Passkey দিয়ে Inbox তৈরি ও Recovery Address হওয়া সম্ভব দেখানো হয়েছে। সূত্রগুলো একমত নয়। | **UNVERIFIED — DECISION GATE** |
+
+গুরুত্বপূর্ণ: X10 পুরো TwinCercle Architecture-এর সবচেয়ে বড় অনিশ্চয়তা। মূল ডকুমেন্টের "Passkey-first" সিদ্ধান্ত XMTP Passkey সাপোর্টের ওপর নির্ভরশীল। Spike S1 (PART 25) সম্পন্ন না হওয়া পর্যন্ত Identity ও Messaging Layer-এর চূড়ান্ত ডিজাইন করা যাবে না।
+
+### 15.2 WebAuthn ও Passkey
+
+| # | তথ্য | Status |
+| - | ---- | ------ |
+| W1 | **PRF Extension** Passkey থেকে নির্ধারিত (deterministic) গোপন Key Material তৈরি করতে দেয়। Private Key ডিভাইস ছাড়ে না। এটি এনক্রিপ্টেড ব্যাকআপ ও লোকাল ডেটা সুরক্ষার জন্য ব্যবহারযোগ্য। | VERIFIED |
+| W2 | PRF সাপোর্ট ব্রাউজার, অপারেটিং সিস্টেম **এবং Credential Manager (Passkey Provider)**-এর সম্মিলিত ওপর নির্ভর করে। শুধু ব্রাউজার-টেবিল যথেষ্ট নয়। Chrome, Safari (প্রায় 18+), Firefox-এ সাপোর্টের কথা সূত্রে আছে, কিন্তু Windows ও Linux-এ সীমিত। Feature Detection বাধ্যতামূলক। | VERIFIED, আংশিক |
+| W3 | WebAuthn Spec Editor-দের একজন ২০২৬-এর ফেব্রুয়ারিতে সতর্ক করেছেন: Authentication Credential-কে Encryption Root বানালে Passkey মুছে গেলে ডেটাও হারাতে পারে। তাই PRF ডিজাইনে একাধিক Authenticator, Recovery Key এবং ব্যবহারকারীকে আগে সতর্কবার্তা বাধ্যতামূলক। | VERIFIED |
+| W4 | **Related Origin Requests**: একাধিক সম্পর্কিত ডোমেইনে একই Passkey ব্যবহার করার সুবিধা। Safari 17.4, Chrome 133, Firefox 135 থেকে সাপোর্টের কথা সূত্রে আছে। | VERIFIED |
+| W5 | WebAuthn Level 3-এর স্ট্যাটাস: মূল ডকুমেন্টে লেখা হয়েছে এটি W3C Recommendation হিসেবে প্রকাশিত। একটি ২০২৬-এর সূত্র বলছে জুলাই ২০২৬-এ এটি Recommendation-এর জন্য **প্রস্তাবিত** হয়েছে। চূড়ান্ত অবস্থা নিশ্চিত নয়। | UNVERIFIED — w3.org-এ দেখে নিতে হবে |
+
+### 15.3 PWA ও iOS সীমাবদ্ধতা
+
+| # | তথ্য | Status |
+| - | ---- | ------ |
+| P1 | iOS-এ Web Push ১৬.৪ বা তার পরের সংস্করণে কাজ করে। সূত্রগুলো অনুযায়ী এর জন্য PWA Home Screen-এ ইনস্টল করা থাকতে হয়। একটি সূত্র EU-তে সীমাবদ্ধতার কথা বলেছে, যা আলাদাভাবে যাচাই করতে হবে। | VERIFIED, আংশিক |
+| P2 | iOS Safari-তে ইনস্টল না করা ওয়েবসাইটের স্টোরেজে (IndexedDB, Cache) নির্দিষ্ট দিন অব্যবহৃত থাকলে ডেটা মুছে যাওয়ার নীতি আছে (সূত্রে ৭ দিনের কথা)। ইনস্টল করা PWA বেশি স্থিতিশীল। Persistent Storage অনুরোধ iOS-এ প্রত্যাখ্যাত হয় বলে একটি সূত্রে আছে। | VERIFIED, আংশিক |
+| P3 | ইনস্টল না করা অবস্থায় প্রতি Origin-এর স্টোরেজ সীমা প্রায় ৫০ MB (Cache + IndexedDB মিলিয়ে) বলে একাধিক সূত্রে আছে। | VERIFIED, আংশিক |
+| P4 | iOS-এ `beforeinstallprompt` নেই। ব্যবহারকারীকে Share → Add to Home Screen ধাপ নিজে দেখাতে হবে। | VERIFIED |
+| P5 | iOS-এ Safari ও ইনস্টল করা PWA-র স্টোরেজ আলাদা (Sandbox)। একটিতে সংরক্ষিত ডেটা অন্যটিতে পাওয়া যায় না। | VERIFIED |
+
+### 15.4 এই তথ্যগুলোর স্থাপত্যিক ফলাফল (Implications)
+
+* IndexedDB বা ব্রাউজার-স্টোরেজকে কখনো **একমাত্র** Source of Truth ধরা যাবে না। এনক্রিপ্টেড ব্যাকআপ ও রিস্টোর পথ বাধ্যতামূলক (P2, P3, X3)।
+* মূল ডকুমেন্টের "Encrypted local application data" লক্ষ্য XMTP Browser SDK-র নিজস্ব ডেটাবেসের জন্য সরাসরি প্রযোজ্য নয় (X5)। এই দ্বন্দ্ব ADR-003-এ সমাধান করা হয়েছে।
+* "Decentralized" শব্দটি মার্কেটিং বা UI-তে ব্যবহার করার আগে বাস্তব Infrastructure মিলিয়ে নিতে হবে (X8)।
+* Passkey-first পরিকল্পনা X10-এর Spike ফলাফলের ওপর নির্ভরশীল।
+* Push Notification-এ iOS ব্যবহারকারীদের জন্য ইনস্টল-নির্দেশনা Onboarding-এর অংশ হতে হবে (P1, P4)।
+
+### PART 16 — আর্কিটেকচার সিদ্ধান্ত রেকর্ড (ADR) ও দ্বন্দ্বের সমাধান
+
+প্রতিটি ADR-এর ফরম্যাট: Context, Options, Recommendation, Consequences, Status। `docs/DECISIONS.md`-এ এগুলো রাখতে হবে।
+
+### ADR-001 — Messaging Identity-এর ভিত্তি (Passkey-first বনাম XMTP)
+
+**Status:** DECISION GATE
+
+**Context:** মূল ডকুমেন্ট Passkey-first Account চায়। XMTP-র Identity Model Signer-ভিত্তিক। Passkey সাপোর্ট নিশ্চিত নয় (X10)।
+
+**Options:**
+
+| Option | বিবরণ | সুবিধা | ঝুঁকি |
+| ------ | ------ | ------ | ----- |
+| A | XMTP-র নেটিভ Passkey Identity ব্যবহার | সবচেয়ে সরল, Wallet ছাড়াই | সাপোর্ট নিশ্চিত না হলে ব্লক হয়ে যাবে |
+| B | Client-side তৈরি Wallet-ধরনের Signer (Embedded Key), Passkey দিয়ে সুরক্ষিত | এখনই সম্ভব হতে পারে | Key Separation ও Recovery ডিজাইন জটিল। কোন Key কীভাবে সুরক্ষিত তা নিখুঁত হতে হবে |
+| C | Wallet-first (বাহ্যিক Wallet বাধ্যতামূলক) | নিশ্চিত সমর্থিত | মূল লক্ষ্যের বিরোধী (Wallet ঐচ্ছিক) |
+| D | অন্য প্রোটোকল (যেমন Waku + MLS নিজে) | পূর্ণ নিয়ন্ত্রণ | অনেক বেশি কাজ ও ঝুঁকি। নিজে Messaging Protocol বানানো PART 8.1-এর চেতনার বিরুদ্ধে যেতে পারে |
+
+**Recommendation (PROPOSED):** Spike S1 চালাও। A পাস করলে A। না করলে B-কে নিরাপত্তা-পর্যালোচনাসহ বিবেচনা করো। C শুধু Fallback হিসেবে (ঐচ্ছিক Wallet পথ আলাদা)। D শুধু A, B উভয় ব্যর্থ হলে।
+
+**Exit Criteria:** Spike S1 রিপোর্ট অনুমোদিত হলে Status বদলে ACCEPTED হবে।
+
+### ADR-002 — Username ও Inbox ID-এর সংযোগ
+
+**Status:** PROPOSED
+
+**Context:** `username@twincercle.com` একটি TwinCercle Namespace (মূল ডকুমেন্ট ২.৪)। XMTP-র প্রাথমিক Identifier Inbox ID।
+
+**Recommendation:**
+
+* PostgreSQL Registry-তে `username → user_id → inbox_id` ম্যাপিং।
+* ম্যাপিং তৈরি বা পরিবর্তনের অনুরোধ ব্যবহারকারীর Identity Credential দিয়ে Signed হতে হবে (সার্ভার একা পরিবর্তন করতে পারবে না)।
+* Resolution API পাবলিক Rate-limited। শুধু একটি নির্দিষ্ট Username-এর উত্তর দেবে। কখনো তালিকা বা Enumeration API দেবে না।
+* Client প্রতিবার Resolve করা Inbox ID Local Cache-এ রাখবে এবং পরবর্তীতে বদলে গেলে ব্যবহারকারীকে সতর্ক করবে (Key/Identity Change Warning)।
+* ভবিষ্যতে On-chain Registry যুক্ত করা গেলে Database Registry তার Cache হিসেবে থাকবে। Registry Interface এমনভাবে তৈরি করতে হবে যাতে Backend বদলানো যায়।
+
+**Consequences:** Registry সার্ভার Username-এর সংযোগের ওপর বিশ্বাসের কেন্দ্র। তাই Key Change Warning ও Verification Code (Safety Number) UI বাধ্যতামূলক।
+
+### ADR-003 — স্থানীয় ডেটা এনক্রিপশন (X5 সমাধান)
+
+**Status:** DECISION GATE
+
+**Context:** Browser SDK-র ডেটাবেস এনক্রিপ্টেড নয়। মূল ডকুমেন্ট "Encrypted local application data" চায়।
+
+**Options:**
+
+* **A:** SDK-র ডেটাবেসকে যেমন আছে ব্যবহার করা, ঝুঁকি স্পষ্টভাবে ডকুমেন্ট ও ব্যবহারকারীকে প্রকাশ করা। TwinCercle-এর নিজস্ব ডেটা (ড্রাফট, সেটিংস, ক্যাশ, কন্টাক্ট নোট) আলাদা এনক্রিপ্টেড স্টোরে রাখা।
+* **B:** SDK-র নতুন সংস্করণে এনক্রিপশন সাপোর্ট এসেছে কি না যাচাই করে ব্যবহার।
+* **C:** Native Wrapper (পরবর্তীতে) যেখানে OS-সুরক্ষিত স্টোরেজ ব্যবহার সম্ভব।
+
+**Recommendation (PROPOSED):** শুরুতে A + B-এর যাচাই। "সম্পূর্ণ Local Encryption আছে" বলে দাবি করা যাবে না যতক্ষণ বাস্তবে না হয়। Security Settings পেজে "ডিভাইসে ডেটা কতটা সুরক্ষিত" সৎভাবে লিখতে হবে।
+
+### ADR-004 — রিকভারি মডেল
+
+**Status:** PROPOSED
+
+* ন্যূনতম দুটি Passkey (দুটি ভিন্ন Authenticator) বা একটি Passkey + একটি Recovery Key Onboarding শেষ করার শর্ত। না হলে Account "Recovery Incomplete" অবস্থায় থাকবে এবং Dashboard-এ স্থায়ী স্মারক দেখাবে।
+* Recovery Key: ২৫৬-বিট Client-side র‍্যান্ডম। একবার দেখানো হবে (QR/টেক্সট)। কখনো সার্ভারে যাবে না। ব্যবহারকারী অফলাইনে সংরক্ষণ করবেন।
+* সার্ভারে Escrow বা "Forgot password"-ধরনের Backdoor থাকবে না (Non-Custodial নীতি)। এর অর্থ সব Authenticator ও Recovery Key হারালে Account ও এনক্রিপ্টেড ইতিহাস স্থায়ীভাবে হারাবে। এই কথা Onboarding-এ স্পষ্ট ও বোধগম্য ভাষায় লিখতে হবে (Bangla ও English)।
+* এনক্রিপ্টেড ইতিহাস ব্যাকআপ ঐচ্ছিক ফিচার। কী দিয়ে সুরক্ষিত (PRF বা Recovery Key) তা ADR-001 ফলাফলের পর চূড়ান্ত হবে।
+
+### ADR-005 — Email-like Mode-এর বাস্তবায়ন
+
+**Status:** PROPOSED
+
+* Chat Mode ও Mail-like Mode একই Encrypted Conversation-এর ওপর দুই Presentation।
+* Subject, Rich Body, Thread Reference হবে Message Payload-এর ভেতরে (Content Type হিসেবে)। অর্থাৎ Subject সার্ভার ও Relay-এর কাছে দৃশ্যমান হবে না।
+* এটি SMTP Email নয়। UI ও মার্কেটিংয়ে "Email" না বলে "Mail-style message" বা সমতুল্য শব্দ ব্যবহার।
+
+### ADR-006 — WebAuthn Relying Party ID ও Domain কৌশল
+
+**Status:** DECISION GATE (প্রথম প্রকৃত ব্যবহারকারীর আগে চূড়ান্ত)
+
+**Context:** Passkey একটি Relying Party ID-এর সঙ্গে বাঁধা। পরে ডোমেইন বদলালে ব্যবহারকারীর Passkey অকার্যকর হতে পারে।
+
+**Recommendation (PROPOSED):**
+
+* RP ID = `twincercle.com` (Registrable Domain) যাতে `app.twincercle.com` ইত্যাদি Subdomain কাজ করে।
+* Marketing সাইট ও অ্যাপ আলাদা Origin-এ (যেমন `twincercle.com` ও `app.twincercle.com`) রাখা, যাতে অ্যাপের CSP কঠোর রাখা যায়। এ বিষয়ে একসঙ্গে সিদ্ধান্ত নিতে হবে।
+* ভবিষ্যতে ডোমেইন বদলের সম্ভাবনার জন্য Related Origin Requests (W4) পরীক্ষা করা।
+* ডোমেইন নিবন্ধন, DNSSEC, রেজিস্ট্রার লক, ২FA ও মেয়াদ নবায়ন স্বয়ংক্রিয় করা। ডোমেইন হারালে সব Passkey অকার্যকর হবে, এটি সবচেয়ে বড় অপারেশনাল ঝুঁকির একটি।
+
+### ADR-007 — Decentralization সংক্রান্ত দাবির নীতি
+
+**Status:** ACCEPTED (মূল ডকুমেন্টের ১.৩ ও SECTION 03-এর সঙ্গে সঙ্গতিপূর্ণ)
+
+* "Hybrid" শব্দটি ব্যবহার করতে হবে। "Fully decentralized" বা "serverless" দাবি করা যাবে না।
+* Landing Page ও Docs-এ Registry, Relay, Identity Sync, Push, Storage-এর কোনটি কার কাছে (TwinCercle বা তৃতীয় পক্ষ) আছে তা স্বচ্ছ টেবিলে দেখাতে হবে।
+
+### ADR টেমপ্লেট (নতুন সিদ্ধান্তের জন্য)
+
+```markdown
+# ADR-XXX — শিরোনাম
+Status: PROPOSED | ACCEPTED | DEPRECATED | SUPERSEDED BY ADR-YYY
+Date: YYYY-MM-DD
+Deciders: 
+## Context
+## Options Considered
+## Decision
+## Consequences (ভালো ও মন্দ দুটোই)
+## Verification (কীভাবে সিদ্ধান্ত পরীক্ষা হবে)
+## References
+```
+
+### PART 17 — Threat Model (বিস্তারিত)
+
+### 17.1 Assets (সুরক্ষা করার সম্পদ)
+
+| Asset | গুরুত্ব | মন্তব্য |
+| ----- | ------- | ------- |
+| Passkey / Authenticator | Critical | Account Control-এর মূল |
+| Recovery Key | Critical | চুরি গেলে Account Takeover সম্ভব |
+| Messaging Identity Keys | Critical | Impersonation ও Decryption |
+| স্থানীয় বার্তা ডেটাবেস | High | X5 অনুযায়ী ব্রাউজারে এনক্রিপ্টেড নয় |
+| এনক্রিপ্টেড ব্যাকআপ | High | Key Derivation সঠিক না হলে দুর্বল |
+| Username Registry | High | Impersonation ও Hijack |
+| Social Graph (কে কার সঙ্গে কথা বলে) | High | মেটাডেটা প্রাইভেসি |
+| Push Token | Medium | টোকেন চুরি হলে Notification Spam |
+| অ্যাপ কোড (Web Delivery) | Critical | E2EE ওয়েব অ্যাপের সবচেয়ে বড় বিশ্বাস-সমস্যা |
+| Wallet Link | Medium | Phishing ও Identity Correlation |
+
+### 17.2 Adversaries (প্রতিপক্ষ)
+
+| Adversary | সামর্থ্য |
+| --------- | -------- |
+| নেটওয়ার্ক পর্যবেক্ষক | ট্র্যাফিক ও মেটাডেটা দেখে |
+| দূষিত Relay/Node অপারেটর | বার্তা আটকাতে, দেরি করতে, মেটাডেটা সংগ্রহ করতে পারে |
+| **TwinCercle-এর নিজের সার্ভার/কর্মী (Insider)** | Registry পরিবর্তন, দূষিত কোড সরবরাহ করতে পারে |
+| Phishing আক্রমণকারী | নকল সাইট, নকল Signing Request |
+| চুরি যাওয়া বা আপস হওয়া ডিভাইস | স্থানীয় ডেটা ও সক্রিয় Session |
+| দূষিত Dependency (Supply Chain) | Build-এ কোড ঢোকাতে পারে |
+| Spammer / Squatter | Username ও Inbox Flood |
+| পরিচিত কেউ (Partner, Family) | ডিভাইসে শারীরিক প্রবেশ |
+| রাষ্ট্রীয়-স্তরের প্রতিপক্ষ | **Out of Scope (v1)**। এই সীমা ডকুমেন্টে প্রকাশ্যে লিখতে হবে। |
+
+### 17.3 Trust Boundaries
+
+* ব্যবহারকারীর ডিভাইস ↔ TwinCercle API (Registry, Auth)
+* ব্যবহারকারীর ডিভাইস ↔ Messaging Network (XMTP/Relay)
+* ব্যবহারকারীর ডিভাইস ↔ Object Storage (Encrypted Attachment)
+* ব্যবহারকারীর ডিভাইস ↔ External Wallet
+* ব্রাউজার ↔ TwinCercle দ্বারা সরবরাহ করা JavaScript (Code Delivery)
+* TwinCercle Backend ↔ Database, Push Provider, Blockchain RPC
+
+### 17.4 Threat Table (STRIDE-ভিত্তিক)
+
+| ID | Threat | Asset | Mitigation | Test |
+| -- | ------ | ----- | ---------- | ---- |
+| T01 | Spoofing: নকল সাইটে Passkey/Wallet Phishing | Account | RP ID Binding (WebAuthn স্বাভাবিকভাবেই Origin-বাঁধা), SIWE Domain যাচাই, Signing Request-এ পরিষ্কার বিবরণ | ভুল Origin থেকে লগইন ব্যর্থ হয় |
+| T02 | Replay: পুরনো Signature পুনর্ব্যবহার | Session | Server-generated Nonce, Expiry, এককালীন ব্যবহার | একই Nonce দুইবার ব্যর্থ হয় |
+| T03 | Tampering: Registry-তে Username → Inbox ম্যাপিং বদল | Registry | Signed Update, Audit Log, Client-side Key Change Warning | সার্ভার একা ম্যাপিং বদলালে Client সতর্ক করে |
+| T04 | Repudiation | Audit | Security Event Log (Content-মুক্ত), Immutable Append-only | Device Revoke লগ হয় |
+| T05 | Information Disclosure: বার্তার বিষয়বস্তু | Messages | E2EE (Protocol SDK), Plaintext সার্ভারে নয় | Backend DB-তে Plaintext অনুসন্ধানে কিছু মেলে না |
+| T06 | Information Disclosure: মেটাডেটা/Social Graph | Metadata | ন্যূনতম সংগ্রহ, Push Payload-এ বিষয়বস্তু বা প্রেরকের নাম নয়, Lookup Rate-limit | লগ ও DB-তে নিষিদ্ধ ফিল্ড নেই |
+| T07 | DoS: Registry ও API ওভারলোড | API | Rate Limiting, CDN/WAF, Backpressure | লোড টেস্ট |
+| T08 | Elevation: Session Hijack | Session | HttpOnly+Secure+SameSite Cookie, ছোট TTL, সংবেদনশীল কাজে Step-up (Passkey আবার) | Device Revoke-এ Re-auth লাগে |
+| T09 | **Malicious JS Delivery** | App Code | কঠোর CSP, SRI, তৃতীয়-পক্ষ স্ক্রিপ্ট নিষিদ্ধ (অ্যাপ Origin-এ), Reproducible Build, প্রকাশিত Hash | CSP Violation রিপোর্ট শূন্য, Build Hash মেলে |
+| T10 | Supply Chain Attack | Build | Lockfile, Dependency Pinning, Audit, অন্তত ১৪ দিন পুরনো রিলিজ পছন্দ, SBOM | CI-তে Audit পাস |
+| T11 | চুরি যাওয়া ডিভাইস | Local DB, Session | Auto-lock, Remote Device Revoke, Session Invalidate | Revoke-এর পর নতুন বার্তা ওই Installation-এ আসে না |
+| T12 | Recovery Key চুরি | Account | একবার প্রদর্শন, ব্যবহারকারীকে নিরাপদ সংরক্ষণ নির্দেশনা, Recovery ব্যবহারে সব Device-এ বিজ্ঞপ্তি ও Delay | Recovery ইভেন্টে Alert যায় |
+| T13 | Username Squatting/Impersonation | Registry | Reserved List, Homoglyph প্রতিরোধ (ASCII-only শুরুতে), Rate Limit, Rename Cooldown | সংরক্ষিত নাম নেওয়া যায় না |
+| T14 | Spam / Harassing Messages | Inbox | Message Request, Block, Report, Rate Limit | অপরিচিত প্রেরক Requests-এ যায় |
+| T15 | দূষিত Attachment | File | Client-side Type/Size Check, Sandbox Preview, ডাউনলোডে সতর্কতা, অটো-এক্সিকিউট নয় | বিপজ্জনক Type ব্লক হয় |
+| T16 | Wallet Drainer / Malicious Signing Request | Wallet | শুধু Login Signature, Transaction কখনো Login-এ নয়, Human-readable Message | Login-এ Transaction অনুরোধ হয় না |
+| T17 | PRF/Passkey হারানোর ফলে ডেটা ক্ষতি | Backup | একাধিক Authenticator + Recovery Key বাধ্যতামূলক (W3) | একমাত্র Passkey মুছলে সতর্কতা ও Recovery পথ কাজ করে |
+| T18 | Key Change Attack (MITM Identity) | Conversation | Identity Change Warning, Safety Number/Verification | Key বদলালে UI সতর্ক করে |
+| T19 | Domain/DNS Hijack | Entire System | Registrar Lock, DNSSEC, Monitoring, CAA | নিয়মিত অডিট চেকলিস্ট |
+| T20 | Insider Threat | Registry/Code | Least Privilege, ২-জনের অনুমোদনে প্রোডাকশন রিলিজ, Audit Log | Access Review |
+
+### 17.5 Residual Risks (অবশিষ্ট ঝুঁকি, প্রকাশ্য স্বীকার)
+
+* Web অ্যাপের কোড সরবরাহকারী হিসেবে TwinCercle দূষিত বা আপস হলে E2EE ভাঙা সম্ভব। Native/Signed Client ভবিষ্যৎ ঝুঁকি-হ্রাসের পথ।
+* নেটওয়ার্ক স্তরে মেটাডেটা (কে কখন সংযুক্ত) সম্পূর্ণ লুকানো সম্ভব নয়।
+* Browser SDK-র স্থানীয় DB এনক্রিপ্টেড নয় (X5), ডিভাইস দখল হলে ঝুঁকি।
+* ব্যবহারকারী Recovery Key হারালে পুনরুদ্ধার অসম্ভব।
+
+### PART 18 — Key Lifecycle ও Recovery Specification
+
+এই অংশটি ADR-001 সিদ্ধান্তের পর চূড়ান্ত হবে। এখন এটি ডিজাইন-লক্ষ্য।
+
+### 18.1 Key Inventory
+
+| Key | কোথায় তৈরি | কোথায় থাকে | কী দিয়ে সুরক্ষিত | Rotation | ক্ষতির প্রভাব |
+| --- | ----------- | ----------- | ----------------- | -------- | ------------- |
+| Passkey (Authenticator Credential) | Authenticator | Authenticator/Credential Manager | ডিভাইস বায়োমেট্রিক/PIN | নতুন Passkey যোগ করে পুরনো বাতিল | একমাত্র হলে লগইন হারায় |
+| Messaging Identity (Inbox/Installation Keys) | Client SDK | SDK-র স্থানীয় স্টোর | SDK-নির্ভর (X5 দেখো) | Installation Revoke/নতুন | ইতিহাস ও Impersonation ঝুঁকি |
+| Recovery Key | Client (CSPRNG) | ব্যবহারকারীর অফলাইন সংরক্ষণ | ব্যবহারকারীর ভৌত নিরাপত্তা | প্রয়োজনে নতুন তৈরি, পুরনো অকার্যকর | চুরি = Takeover, হারানো + সব Passkey হারানো = স্থায়ী ক্ষতি |
+| Backup Encryption Key | Client | কখনো সরাসরি সংরক্ষিত নয় | PRF বা Recovery Key থেকে Derived | Rotation সহ নতুন Backup | ব্যাকআপ অপাঠযোগ্য হতে পারে |
+| External Wallet Key | ব্যবহারকারীর Wallet | Wallet | Wallet | Wallet-নির্ভর | TwinCercle কখনো স্পর্শ করে না |
+| Server Session/Signing Secrets | Server | KMS/Secret Manager | KMS | নিয়মিত Rotation | সব Session আপস |
+
+### 18.2 Onboarding ফ্লো (লক্ষ্য)
+
+* Passkey তৈরি (WebAuthn, User Verification Required)।
+* Messaging Identity তৈরি (ADR-001 অনুযায়ী)।
+* দ্বিতীয় Authenticator বা Recovery Key বাধ্যতামূলক ধাপ।
+* Username নির্বাচন ও Signed Registration।
+* iOS হলে PWA ইনস্টল নির্দেশনা (P1, P4)।
+* নিরাপত্তা সারসংক্ষেপ: "কী হারালে কী ঘটবে" পরিষ্কার ভাষায় (Bangla/English)।
+
+### 18.3 নতুন ডিভাইস যোগ
+
+* বিদ্যমান ডিভাইস থেকে অনুমোদন (QR/কোড) অথবা Passkey Sync + Recovery।
+* নতুন Installation তৈরি হবে এবং Installation সংখ্যা সীমার (X3) কাছাকাছি হলে ব্যবহারকারীকে পুরনো ডিভাইস Revoke করতে বলা হবে।
+* সব বিদ্যমান ডিভাইসে "নতুন ডিভাইস যোগ হয়েছে" বিজ্ঞপ্তি।
+
+### 18.4 ডিভাইস Revoke
+
+* Step-up Authentication (Passkey আবার) বাধ্যতামূলক।
+* Protocol-level Installation Revocation + Server-side Session Invalidate + Push Token মুছে ফেলা।
+* অন্য ডিভাইসে বিজ্ঞপ্তি।
+
+### 18.5 Recovery ফ্লো
+
+```mermaid
+
+flowchart TD
+    A[Lost access] --> B{Other authenticator available?}
+    B -- Yes --> C[Sign in with another Passkey]
+    C --> D[Revoke lost device and add new authenticator]
+    B -- No --> E{Recovery Key available?}
+    E -- Yes --> F[Enter Recovery Key on trusted device]
+    F --> G[Cooling-off delay and alert to all remaining devices]
+    G --> H[Authorize new Passkey and installation]
+    E -- No --> I[Account and encrypted history are not recoverable]
+    I --> J[Offer to create a new identity]
+```
+
+নিয়ম:
+
+* Recovery ব্যবহারের পর স্বয়ংক্রিয়ভাবে নতুন Recovery Key তৈরির অনুরোধ।
+* Recovery সক্রিয় হলে বিদ্যমান সব ডিভাইসে Alert এবং একটি Cooling-off সময় (দৈর্ঘ্য: PROPOSED ২৪ ঘণ্টা) যাতে প্রকৃত মালিক বাতিল করতে পারেন।
+* সাপোর্ট টিম কখনো Recovery Bypass করতে পারবে না। সামাজিক প্রকৌশলের (Social Engineering) বিরুদ্ধে এটি জরুরি।
+
+### 18.6 Account মুছে ফেলা (Deletion)
+
+* TwinCercle-এর সংরক্ষিত Registry ডেটা মোছা যাবে।
+* Protocol/Network ও Blockchain-এ যে ডেটা অপরিবর্তনীয়, তা সম্পূর্ণ মোছা যায় না। এই সীমাবদ্ধতা Deletion স্ক্রিনে আগে থেকে জানাতে হবে।
+* Username Release Policy (কত দিন পর অন্য কেউ নিতে পারবে) ঠিক করা বাধ্যতামূলক। PROPOSED: Impersonation ঠেকাতে অন্তত ৯০ দিনের Quarantine।
+
+### PART 19 — Privacy, Data Governance ও Compliance
+
+এটি আইনি পরামর্শ নয়। প্রোডাকশনের আগে যে দেশে সেবা দেওয়া হবে সেখানকার আইনজীবীর পর্যালোচনা প্রয়োজন।
+
+### 19.1 Data Inventory (ডেটা তালিকা)
+
+| ডেটা | কোথায় | কেন | Retention | সংবেদনশীলতা |
+| ---- | ------ | --- | --------- | ----------- |
+| Username | Registry (PostgreSQL) | পরিচয় | অ্যাকাউন্ট সক্রিয় থাকা পর্যন্ত + Quarantine | Public |
+| Public Keys/Inbox ID | Registry | রেজোলিউশন | একই | Public |
+| Device/Installation ID | DB | Revocation | ডিভাইস সক্রিয় থাকা পর্যন্ত | Medium |
+| Push Token | DB | নোটিফিকেশন | Revoke বা ব্যবহারকারী বন্ধ করা পর্যন্ত | Medium |
+| IP ঠিকানা | Edge/Logs | অ্যাবিউজ প্রতিরোধ | ছোট সময় (PROPOSED ৩০ দিন) | Medium |
+| Security Events | DB | অডিট | PROPOSED ১ বছর | Medium |
+| বার্তার বিষয়বস্তু | শুধু ব্যবহারকারী ডিভাইস ও Protocol (এনক্রিপ্টেড) | যোগাযোগ | TwinCercle সার্ভারে নেই | Critical |
+| Encrypted Attachment | Object Storage | ফাইল স্থানান্তর | মেয়াদভিত্তিক মুছে ফেলা | High (Ciphertext) |
+| Analytics | ন্যূনতম, বার্তা-নিরপেক্ষ | স্থায়িত্ব পর্যবেক্ষণ | সীমিত | Low |
+
+নীতি: এই তালিকায় নেই এমন ডেটা সংগ্রহ করতে হলে প্রথমে এই তালিকা হালনাগাদ ও অনুমোদন করতে হবে।
+
+### 19.2 Privacy নীতিমালা (প্রকৌশলগত)
+
+* Content Analytics নয়। বার্তা সংক্রান্ত কোনো ইভেন্ট থার্ড-পার্টি Analytics-এ যাবে না।
+* Error Report ও Log-এ Redaction বাধ্যতামূলক (Key, Token, Message Body, Address)।
+* Contact Discovery: ব্যবহারকারীর ফোনবুক বা ইমেইল তালিকা আপলোড করা যাবে না (v1)।
+* Username Lookup-এ Enumeration প্রতিরোধ।
+* Push Notification Payload: সাধারণ "নতুন বার্তা" লেখা, প্রেরক বা বিষয়বস্তু নয়। Client জেগে উঠে নিজে Fetch করবে।
+* Wallet Link ঐচ্ছিক ও প্রকাশ্যে-দৃশ্যমান হওয়া সম্পর্কে সতর্কীকরণ (X9)।
+
+### 19.3 আইনি ও নিয়ন্ত্রক বিষয় (Counsel দিয়ে যাচাই)
+
+* GDPR বা সমতুল্য: Access, Rectification, Erasure, Portability। অপরিবর্তনীয় Ledger/Blockchain ডেটায় Erasure-এর সীমা।
+* Terms of Service ও Privacy Policy, কুকি ও সম্মতি।
+* বেআইনি কনটেন্ট সংক্রান্ত নীতি ও রিপোর্টিং প্রক্রিয়া। E2EE সার্ভারের পক্ষে বিষয়বস্তু দেখা অসম্ভব, তাই ব্যবহারকারী-চালিত Report (ব্যবহারকারী নিজে সংশ্লিষ্ট বার্তা Forward করবেন) ডিজাইন করতে হবে।
+* ক্রিপ্টো-সংশ্লিষ্ট ফিচার (Payments, Marketplace) আলাদা নিয়ন্ত্রক ঝুঁকি বহন করে। এগুলো Phase 6+ এর আগে আইনি পর্যালোচনা ছাড়া শুরু করা যাবে না। Custody না রাখা (Non-custodial) ঝুঁকি কমায়, কিন্তু আইনি দায় সম্পূর্ণ দূর করে না।
+* Export Control ও Encryption সংক্রান্ত নিয়ম এবং অ্যাপ স্টোর (ভবিষ্যৎ Native Wrapper) নীতি।
+* বয়সসীমা (কত বছরের নিচের ব্যবহারকারী নিষিদ্ধ) ও এর যাচাই পদ্ধতি।
+* Transparency Report ও Law-enforcement Request নীতি: কী দেওয়া সম্ভব (প্রায় শুধু Registry মেটাডেটা) তা আগে থেকে প্রকাশিত হলে ভালো।
+
+### PART 20 — Abuse, Spam ও Moderation পরিকল্পনা
+
+E2EE প্ল্যাটফর্মে সার্ভার বার্তা পড়তে পারে না। তাই অ্যাবিউজ প্রতিরোধ হবে Identity, Rate Limit এবং ব্যবহারকারী-নিয়ন্ত্রিত টুলের ওপর।
+
+| ক্ষেত্র | ব্যবস্থা |
+| ------- | -------- |
+| অপরিচিত প্রেরক | প্রথম বার্তা "Requests" ফোল্ডারে। গ্রহণ না করা পর্যন্ত মূল Inbox-এ নয়, Read Receipt যায় না |
+| Block | ব্লক করা Identity-র বার্তা Client-এ লুকানো, নতুন Request বন্ধ |
+| Report | ব্যবহারকারী নিজে নির্বাচিত বার্তা ও প্রেরকের Identity সহ রিপোর্ট পাঠান। সার্ভার শুধু ব্যবহারকারী-প্রদত্ত তথ্য দেখে |
+| Rate Limit | Username Registration, Lookup, Friend/Contact Request, Message Request, Login প্রচেষ্টা |
+| Username Squatting | Reserved List, নতুন অ্যাকাউন্টে Registration সীমা, Rename Cooldown, Quarantine |
+| Bot প্রতিরোধ | Proof-of-work বা Privacy-preserving Challenge বিবেচনা (সরাসরি তৃতীয়-পক্ষ ট্র্যাকিং CAPTCHA এড়িয়ে চলা) |
+| Attachment | সাইজ ও টাইপ সীমা, প্রিভিউ Sandbox, ডাউনলোডের আগে সতর্কতা |
+| Admin | Admin Panel শুধু Registry ও অপারেশন দেখতে পারবে। বার্তার বিষয়বস্তু কখনো নয়। সব Admin কাজ Audit Log-এ |
+| Impersonation | "Verified" ব্যাজের নীতি (কীভাবে, কে, কত খরচ) আগে থেকে লেখা। Verified মানে পরিচয়-যাচাই, বার্তা-নিরাপত্তা নয়, এই পার্থক্য UI-তে পরিষ্কার |
+
+### PART 21 — PWA ও Platform সীমাবদ্ধতা অনুযায়ী প্রয়োজনীয়তা
+
+PART 15.3-এর ফলাফলের ভিত্তিতে:
+
+* **Install Experience:** iOS-এর জন্য নিজস্ব ধাপে-ধাপে ইনস্টল নির্দেশনা (Share → Add to Home Screen)। Android/Desktop-এ ইনস্টল প্রম্পট।
+* **Push Notification:** অনুমতি চাওয়ার আগে ব্যবহারকারীকে কারণ বুঝিয়ে বলা। iOS-এ ইনস্টল ছাড়া Push কাজ করবে না, এ কথা Onboarding-এ থাকবে।
+* **Storage Persistence:** `navigator.storage.persist()` চেষ্টা করা, কিন্তু ফল নিশ্চিত ধরা যাবে না (iOS-এ প্রত্যাখ্যাত হতে পারে)।
+* **ব্যাকআপ:** স্থানীয় ডেটা মুছে গেলে পুনরুদ্ধারযোগ্য এনক্রিপ্টেড ব্যাকআপ (ঐচ্ছিক, ADR-004 অনুযায়ী)।
+* **Offline:** বার্তা পাঠানোর Queue, নেটওয়ার্ক ফিরলে পুনঃচেষ্টা, Duplicate প্রতিরোধ (Idempotency Key)।
+* **Service Worker আপডেট:** আপডেট কোড Integrity-যাচাইয়ের পর কার্যকর হবে। স্বয়ংক্রিয় নীরব আপডেটে Security-সংক্রান্ত পরিবর্তন থাকলে ব্যবহারকারীকে জানানো।
+* **Session ও Storage পার্থক্য:** Safari ট্যাব ও ইনস্টল করা PWA-র স্টোরেজ আলাদা (P5)। এ নিয়ে Onboarding-এ বিভ্রান্তি এড়াতে একটি পথ ঠিক করতে হবে (PROPOSED: iOS-এ ইনস্টল-করার পরই Account তৈরি ধাপ শুরু)।
+* **Capability Detection:** WebAuthn PRF, Related Origin, Push, Persistent Storage সবই Runtime-এ যাচাই করে Fallback দেখাতে হবে। ব্রাউজার নাম ধরে সিদ্ধান্ত নয়।
+
+### PART 22 — Security Engineering Standards
+
+### 22.1 Web Delivery Trust (E2EE ওয়েব অ্যাপের কেন্দ্রীয় সমস্যা)
+
+* অ্যাপ Origin-এ কঠোর Content Security Policy: `default-src 'self'`, ইনলাইন স্ক্রিপ্ট নিষিদ্ধ, `object-src 'none'`, `frame-ancestors 'none'`, `base-uri 'self'`।
+* Trusted Types (যেখানে সম্ভব) ও DOM XSS প্রতিরোধ।
+* অ্যাপ Origin-এ কোনো তৃতীয়-পক্ষ Analytics/Ad/Widget স্ক্রিপ্ট নয়।
+* বাহ্যিক Asset থাকলে Subresource Integrity।
+* Reproducible Build; প্রতিটি রিলিজের Hash প্রকাশ।
+* প্রোডাকশন রিলিজের জন্য দুজনের অনুমোদন।
+* Security Header: `Strict-Transport-Security`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, `Cross-Origin-Opener-Policy`, `Cross-Origin-Embedder-Policy` (সম্ভব হলে)।
+* ভবিষ্যৎ ঝুঁকি-হ্রাস: Signed Native Wrapper বা Browser Extension, Transparency Log।
+
+### 22.2 Authentication ও Session
+
+* WebAuthn: `userVerification: "required"`, Challenge সার্ভার-সৃষ্ট, একবার-ব্যবহার, ছোট মেয়াদ।
+* সার্ভারে Assertion যাচাই: Origin, RP ID, Challenge, Signature, Counter/Backup-state বিবেচনা। যাচাইয়ের জন্য রক্ষণাবেক্ষিত ও নিরীক্ষিত লাইব্রেরি পছন্দ। বেছে নেওয়ার আগে বর্তমান স্ট্যাটাস যাচাই (যেমন SimpleWebAuthn একটি প্রার্থী, UNVERIFIED)।
+* Session: HttpOnly, Secure, SameSite=Strict Cookie; ছোট TTL ও Refresh; Device-ভিত্তিক Session; সংবেদনশীল কাজে (Device Revoke, Recovery পরিবর্তন, Wallet Link/Unlink, Account Deletion) Step-up।
+* SIWE (EIP-4361): Domain, URI, Version, Chain ID, Nonce, Issued At, Expiration Time যাচাই। Nonce সার্ভারে সংরক্ষিত ও এককালীন।
+* Brute-force ও Credential Stuffing প্রতিরোধ: Rate Limit ও Lockout (Passkey-ভিত্তিক হওয়ায় সীমিত, কিন্তু Recovery পথে জরুরি)।
+
+### 22.3 Backend ও Database
+
+* ইনপুট Validation (Schema-ভিত্তিক, যেমন Zod প্রার্থী) প্রতিটি API-তে।
+* Authorization প্রতিটি Resource-এ (Object-level), ID অনুমানযোগ্য হবে না (UUIDv4/v7)।
+* Username Unique: `lower(username)` বা Case-insensitive Collation-এ Database Unique Constraint।
+* সব Migration Version-controlled ও Rollback-পরীক্ষিত।
+* Least-privilege Database User, Connection Encryption।
+* Backup এনক্রিপ্টেড; **Restore পরীক্ষা** নিয়মিত (শুধু Backup নেওয়া যথেষ্ট নয়)।
+* Secret ব্যবস্থাপনা: Secret Manager/KMS; `.env.example`-এ শুধু নাম, কখনো মান নয়; Pre-commit Secret Scan।
+* Log Redaction: Authorization Header, Cookie, Token, Key, Address, বার্তার অংশ কখনো Log-এ নয়।
+* API Versioning (`/api/v1`) ও Backward-compatibility নীতি।
+* Idempotency Key: Registration ও সংবেদনশীল POST-এ।
+
+### 22.4 Dependency ও Build
+
+* Lockfile বাধ্যতামূলক; সঠিক সংস্করণ Pin; আপডেট আলাদা PR-এ।
+* নতুন প্রকাশিত রিলিজ তাৎক্ষণিক নয় (পছন্দ: কমপক্ষে ১৪ দিন পুরনো), যদি না জরুরি নিরাপত্তা Patch হয়।
+* CI-তে `npm audit` বা সমতুল্য, লাইসেন্স স্ক্যান, SBOM তৈরি।
+* Cryptography-সংক্রান্ত Dependency (`packages/crypto`) আলাদা পর্যালোচনা ছাড়া পরিবর্তন নয়।
+* Install Script-যুক্ত প্যাকেজ বিশেষ যাচাইয়ে।
+
+### 22.5 Smart Contract (Phase 6)
+
+* Checks-Effects-Interactions, Access Control, Upgradeability নিয়ে ইচ্ছাকৃত সিদ্ধান্ত।
+* OpenZeppelin ব্যবহার, নিজের Cryptographic Primitive নয়।
+* Unit + Fuzz + Invariant Test। Testnet-এ দীর্ঘ পরীক্ষা।
+* স্বাধীন অডিট ছাড়া Mainnet নয়। Bug Bounty বিবেচনা।
+* Admin Key ও Multisig নীতি।
+
+### PART 23 — Design System Specification
+
+মূল ডকুমেন্টের Black & White Minimalist Palette অপরিবর্তিত। নিচেরটি তার সম্প্রসারণ। AI Developer বিদ্যমান ব্র্যান্ড অ্যাসেট (লোগো, নির্ধারিত রং) থাকলে সেগুলো অগ্রাধিকার দেবে এবং Redesign করবে না।
+
+### 23.1 Design Tokens (PROPOSED)
+
+| Token | Light | Dark | মন্তব্য |
+| ----- | ----- | ---- | ------- |
+| bg-primary | #FFFFFF | #090909 | মূল পৃষ্ঠ |
+| bg-secondary | #F1F1F1 | #141414 | কার্ড, ইনপুট |
+| bg-tertiary | #E6E6E6 | #1E1E1E | Hover, ডিভাইডার পৃষ্ঠ |
+| text-primary | #090909 | #FFFFFF | |
+| text-secondary | #5A5A5A | #A8A8A8 | কনট্রাস্ট যাচাই বাধ্যতামূলক |
+| border | #D9D9D9 | #2A2A2A | |
+| accent | #202020 | #EDEDED | মূল Action |
+| focus-ring | #202020 | #FFFFFF | ২px আউটলাইন, স্পষ্ট দৃশ্যমান |
+| success | সংযত সবুজ | সংযত সবুজ | শুধু Status-এ |
+| warning | সংযত কমলা | সংযত কমলা | সতর্কতায় |
+| danger | সংযত লাল | সংযত লাল | বিপজ্জনক কাজে |
+
+নিয়ম: প্রতিটি টেক্সট-ব্যাকগ্রাউন্ড জোড়া WCAG 2.2 AA কনট্রাস্ট (সাধারণ টেক্সট ৪.৫:১, বড় টেক্সট ও UI উপাদান ৩:১) পাস করতে হবে। রং শুধু অর্থ বহনকারী হবে না, আইকন বা লেখাও থাকবে।
+
+### 23.2 Typography
+
+* System Font Stack Fallback সহ একটি Sans-serif (ফন্ট বেছে নেওয়ার আগে লাইসেন্স যাচাই)।
+* **বাংলা সাপোর্ট বাধ্যতামূলক:** বাংলা অক্ষরের জন্য উপযুক্ত ফন্ট ও Line-height, যুক্তাক্ষরের সঠিক রেন্ডারিং পরীক্ষা (ইংরেজি ও বাংলা মিশ্রিত UI)।
+* স্কেল (প্রস্তাব): 12 / 14 / 16 / 18 / 20 / 24 / 32 / 40। Body ন্যূনতম 16px (মোবাইলে)।
+* কোড/Key/Address দেখানোর জন্য Monospace।
+
+### 23.3 Spacing, Layout ও Motion
+
+* ৪px গ্রিড। Spacing স্কেল: 4, 8, 12, 16, 24, 32, 48, 64।
+* Breakpoints (প্রস্তাব): 360 (ছোট মোবাইল), 768 (ট্যাবলেট), 1024 (ডেস্কটপ), 1440 (প্রশস্ত)।
+* Radius: ছোট (৬px), মাঝারি (১০px), বড় (১৬px), পূর্ণ গোলাকার (অবতার)।
+* Touch Target ন্যূনতম ৪৪×৪৪px।
+* Motion: সংক্ষিপ্ত (১২০–২০০ms), `prefers-reduced-motion` সম্মান করা বাধ্যতামূলক।
+
+### 23.4 Component Inventory
+
+Button, IconButton, Input, Textarea, Select, Checkbox, Switch, Tabs, Modal/Dialog (Focus Trap), Toast, Tooltip, Avatar, Badge (Verified/Status), ListItem, ConversationItem, MessageBubble, Composer (Subject ফিল্ড সহ), AttachmentChip, SafetyNumber ডায়ালগ, DeviceList, RecoveryKeyDisplay (একবার-প্রদর্শন, কপি সতর্কতা), EmptyState, ErrorState, Skeleton/Loading, ConfirmDangerDialog।
+
+### 23.5 গুরুত্বপূর্ণ UX নীতি
+
+* নিরাপত্তা-সংক্রান্ত ডায়ালগ সরল ভাষায় (বাংলা ও ইংরেজি)। প্রযুক্তিগত শব্দ ছাড়া কী ঘটছে ও কী ঝুঁকি, তা বলা।
+* Key পরিবর্তন, নতুন ডিভাইস, Recovery সক্রিয়, এই ইভেন্টগুলোর জন্য আলাদা, সহজে চেনা Alert ডিজাইন।
+* Delivery Status চার ধাপে স্পষ্ট আলাদা: Sent, Accepted by relay, Delivered, Read (PART 10, SECTION 09-এর সঙ্গে সঙ্গতিপূর্ণ)।
+* ভুল প্রতিরোধ: ধ্বংসাত্মক কাজে (Revoke, Delete, Unlink) নিশ্চিতকরণ।
+* ত্রুটি বার্তা কী করতে হবে তা বলবে, কেবল "Error occurred" নয়।
+* **i18n:** শুরু থেকেই ভাষা-কাঠামো (বাংলা, ইংরেজি)। হার্ডকোড স্ট্রিং নয়। তারিখ, সংখ্যা, বহুবচন স্থানীয়করণ।
+* Accessibility: Keyboard Navigation, Screen Reader লেবেল, Focus Order, Skip Link, ARIA সঠিক ব্যবহার, Live Region (নতুন বার্তা ঘোষণা)।
+
+### 23.6 Username নিয়ম (PROPOSED, মালিকের অনুমোদন প্রয়োজন)
+
+* দৈর্ঘ্য ৩–৩০ অক্ষর।
+* অনুমোদিত অক্ষর (শুরুতে): ইংরেজি ছোট হাতের `a–z`, সংখ্যা `0–9`, এবং `.` `_` `-`। শুরুতে বা শেষে বিরামচিহ্ন নয়, পরপর দুটি বিরামচিহ্ন নয়।
+* Case-insensitive; সংরক্ষণ ও তুলনা ছোট হাতের রূপে।
+* Unicode/বাংলা Username শুরুতে নয়। Homoglyph ও Confusable আক্রমণ প্রতিরোধের জন্য ASCII-only দিয়ে শুরু; পরে Unicode যুক্ত করলে Confusable Detection (UTS #39 ধারণা) ও Normalization বাধ্যতামূলক।
+* Reserved List: `admin`, `support`, `security`, `root`, `system`, `help`, `info`, `team`, `official`, `twincercle`, `wallet`, `billing`, `abuse`, `postmaster` ইত্যাদি এবং ব্র্যান্ড-সংক্রান্ত নাম।
+* Rename Cooldown, ছাড়া Username-এর Quarantine (PART 18.6)।
+* নিষিদ্ধ শব্দ-তালিকা (অশ্লীল ও আক্রমণাত্মক) সংরক্ষণ।
+
+### PART 24 — Engineering Workflow ও Governance
+
+* **Branching:** `main` সুরক্ষিত; ফিচার ব্রাঞ্চ থেকে PR; সরাসরি Push নয়।
+* **Commit:** Conventional Commits (`feat:`, `fix:`, `docs:`, `test:`, `refactor:`, `chore:`, `security:`)।
+* **PR টেমপ্লেট:** উদ্দেশ্য, পরিবর্তিত মডিউল, Security প্রভাব, টেস্ট ফলাফল (বাস্তব), Screenshot (UI), ডকুমেন্টেশন হালনাগাদ, Rollback পরিকল্পনা।
+* **Code Review:** Cryptography, Auth, Registry, Contract পরিবর্তনে দ্বিতীয় পর্যালোচক বাধ্যতামূলক। AI-লিখিত কোডেও একই নিয়ম।
+* **TypeScript:** `strict` সহ, `noUncheckedIndexedAccess`, `noImplicitOverride`। `any` নিষিদ্ধ (ব্যতিক্রমে মন্তব্যসহ)।
+* **Lint/Format:** ESLint (Security নিয়মসহ), Prettier, Import Order, Circular Dependency চেক।
+* **Package সীমানা:** `packages/crypto`, `packages/identity`, `packages/messaging` একে অপরের Internal-এ সরাসরি ঢুকবে না। শুধু প্রকাশ্য Interface।
+* **Environments:** Local, Development, Staging, Production। Staging প্রোডাকশনের মতো কিন্তু আলাদা Data ও Key। প্রোডাকশন ডেটা কখনো Staging-এ নয়।
+* **Feature Flags:** অসম্পূর্ণ ফিচার Flag-এর পেছনে, Flag বন্ধ অবস্থায় নিরাপদ।
+* **CI Pipeline ধাপ:** Install → Lint → Typecheck → Unit → Integration → Build → Security Scan (Audit, Secret, SAST) → E2E → Artifact Hash প্রকাশ।
+* **Observability:** Error Tracking ও Metrics, কিন্তু PII ও Key-মুক্ত। Alert: Auth ব্যর্থতার স্পাইক, Registry অস্বাভাবিকতা, Push ত্রুটি।
+* **Release:** Staging যাচাই → দুজনের অনুমোদন → ক্রমান্বয়ে রোলআউট → মনিটরিং → দ্রুত Rollback ক্ষমতা।
+* **Incident Response:** Severity মাত্রা, দায়িত্ব, যোগাযোগ টেমপ্লেট, ব্যবহারকারীকে জানানোর নীতি, Post-mortem (দোষারোপহীন)।
+* **Documentation Debt:** কোড পরিবর্তনে সংশ্লিষ্ট ডকুমেন্ট একই PR-এ হালনাগাদ না হলে PR গ্রহণযোগ্য নয়।
+
+**টুলিং প্রার্থী (প্রতিটি ব্যবহারের আগে বর্তমান অবস্থা যাচাই, UNVERIFIED):** pnpm Workspaces, Vitest, Playwright, Testing Library, Foundry বা Hardhat (Contract), k6 (লোড), Zod, SimpleWebAuthn, Drizzle বা Prisma (ORM, বাছাই বিবেচনায়), Fastify বা Express (API)।
+
+### PART 25 — বিস্তারিত Phase Backlog ও Spikes
+
+### 25.1 Phase 0 — Foundation Backlog
+
+| ID | কাজ | ফলাফল |
+| -- | --- | ------ |
+| 0.1 | pnpm Monorepo তৈরি (PART 7 কাঠামো) | চলমান ওয়ার্কস্পেস |
+| 0.2 | docs/ ফোল্ডার ও ফাইল তৈরি (PART 14 তালিকা) | ডকুমেন্টেশন কাঠামো |
+| 0.3 | CI পাইপলাইন (PART 24) | স্বয়ংক্রিয় Lint/Test/Audit |
+| 0.4 | ADR-001 থেকে ADR-007 প্রবেশ | `docs/DECISIONS.md` |
+| 0.5 | Spike S1–S6 সম্পন্ন | প্রতিটির রিপোর্ট |
+| 0.6 | Design Tokens ও Tailwind কনফিগ (PART 23) | UI প্যাকেজ বেস |
+| 0.7 | CLAUDE.md বা AGENTS.md (PART 10 + PART 29) | AI-র জন্য স্থায়ী Context |
+| 0.8 | Threat Model অনুমোদন (PART 17) | `docs/SECURITY.md` |
+| 0.9 | লাইসেন্স ও Dependency নীতি | নির্ধারিত নিয়ম |
+
+**Phase 0 Exit:** সব ADR "ACCEPTED" বা স্পষ্টভাবে "DEFERRED" সহ কারণ। Spike রিপোর্ট অনুমোদিত। চলমান ডেভ এনভায়রনমেন্ট।
+
+### 25.2 Spikes (Phase 0)
+
+প্রতিটি Spike এর একটি প্রশ্ন, পদ্ধতি, পাস শর্ত ও আউটপুট থাকবে। ফল `docs/spikes/S#.md`-এ।
+
+| Spike | প্রশ্ন | পদ্ধতি | পাস শর্ত |
+| ----- | ------ | ------- | --------- |
+| S1 | XMTP-তে Passkey-ভিত্তিক Inbox তৈরি, Installation যোগ, Recovery কি আজ সম্ভব? | সর্বশেষ Browser SDK Release Notes ও কোড পড়া; দুটি ব্রাউজারে ছোট PoC | দুটি ভিন্ন ডিভাইসে একই Inbox-এ বার্তা পাঠানো ও Revoke কাজ করে |
+| S2 | PRF সাপোর্ট ম্যাট্রিক্স | Chrome, Safari, Firefox × macOS, Windows, iOS, Android × ২–৩টি Passkey Provider | কোন সমন্বয়ে PRF চলে/চলে না তার টেবিল; Fallback নির্ধারিত |
+| S3 | Browser SDK ডেটাবেস এনক্রিপশন বা সুরক্ষা বিকল্প | সর্বশেষ SDK ডকুমেন্টেশন, OPFS/IndexedDB পরীক্ষা | ADR-003-এর সিদ্ধান্ত নেওয়ার তথ্য |
+| S4 | iOS PWA Push ও Storage আচরণ | বাস্তব iPhone-এ ইনস্টল/নন-ইনস্টল, ৭ দিন পরীক্ষা, ডেটা Persist | Onboarding ও ব্যাকআপ নীতির তথ্য |
+| S5 | Blockchain Network তুলনা (Base ও অন্যান্য EVM L2) | ফি, নিরাপত্তা মডেল, Finality, ইকোসিস্টেম, RPC খরচ | Phase 6-এর জন্য সিদ্ধান্ত-ভিত্তি (এখনই প্রয়োগ নয়) |
+| S6 | Messaging নির্ভরযোগ্যতা ও ব্যয় | XMTP বনাম Waku: অফলাইন ডেলিভারি, Latency, Rate Limit, অপারেশন খরচ | ADR-001-এর পরিপূরক ডেটা |
+
+### 25.3 Phase 1–7 সম্প্রসারিত Exit Criteria
+
+| Phase | অতিরিক্ত শর্ত (মূল Acceptance Criteria PART 6.1 অতিরিক্ত) |
+| ----- | ---------------------------------------------------------- |
+| 1 | সব Screen ৩৬০px ও ১৪৪০px-এ পরীক্ষিত; Light/Dark; Keyboard ও Screen Reader স্মোক টেস্ট; বাংলা/ইংরেজি স্ট্রিং; Lighthouse Accessibility ও PWA চেক; ডামি ডেটা স্পষ্টভাবে চিহ্নিত (কোনো নকল "নিরাপত্তা" দাবি নেই) |
+| 2 | Passkey নিবন্ধন/লগইন দুটি ডিভাইসে; Username Race Condition টেস্ট; Reserved Name টেস্ট; Rate Limit টেস্ট; SIWE সব Claim যাচাই; Session নীতি কার্যকর; Step-up কার্যকর |
+| 3 | Key Inventory (PART 18.1) বাস্তবায়িত; Recovery সব পথ (২য় Passkey, Recovery Key, সর্বনাশ-পথ) পরীক্ষিত; Device Revoke টেস্ট; Log-এ Secret নেই (স্বয়ংক্রিয় স্ক্যান); Threat Table-এর সংশ্লিষ্ট Test পাস |
+| 4 | দুটি পৃথক অ্যাকাউন্টে E2EE; অফলাইন ডেলিভারি; Duplicate প্রতিরোধ; চার ধাপের Delivery Status; Attachment এনক্রিপশন; Server DB-তে Plaintext নেই (স্বয়ংক্রিয় যাচাই); Key Change Warning UI |
+| 5 | Relay ব্যর্থতায় Fallback; Push Payload-এ বিষয়বস্তু নেই; Spam/Request ব্যবস্থা; লোড ও নেটওয়ার্ক-ব্যর্থতা টেস্ট |
+| 6 | Testnet-এ সব Contract ফাংশন পরীক্ষা; Fuzz/Invariant; অডিট রিপোর্ট; Wallet Transaction-এ স্পষ্ট সম্মতি UI; মূল Network সিদ্ধান্ত (S5) অনুমোদিত |
+| 7 | স্বাধীন Security অডিট ও ফাইন্ডিংস সমাধান; Penetration Test; Backup Restore প্রমাণিত; Incident Response মহড়া; Accessibility অডিট; আইনি পর্যালোচনা সম্পন্ন; Monitoring ও Alert চালু; Rollback মহড়া |
+
+### PART 26 — Test Case Catalog (ন্যূনতম)
+
+### 26.1 Authentication ও Identity
+
+* AT-01: ভুল Origin থেকে Passkey Assertion গ্রহণ হয় না।
+* AT-02: পুরনো Challenge দিয়ে লগইন ব্যর্থ।
+* AT-03: একই Challenge দুইবার ব্যবহারযোগ্য নয়।
+* AT-04: SIWE-তে ভুল Domain/Chain ID/Expired Message প্রত্যাখ্যাত।
+* AT-05: Session Cookie-তে HttpOnly, Secure, SameSite সেট আছে।
+* AT-06: Step-up ছাড়া Device Revoke ব্যর্থ।
+* AT-07: একই Username দুটি সমান্তরাল অনুরোধে শুধু একটি সফল।
+* AT-08: `Admin`, `ADMIN`, `admin` একই নাম হিসেবে গণ্য, সংরক্ষিত।
+* AT-09: Username Lookup Rate Limit-এ ব্লক হয়, Enumeration সম্ভব নয়।
+
+### 26.2 Cryptography ও Key
+
+* CT-01: Private Key/Seed Log, Error Report, Analytics-এ নেই (স্বয়ংক্রিয় স্ক্যান)।
+* CT-02: Recovery Key সার্ভারে যায় না (নেটওয়ার্ক ট্রেস পরীক্ষা)।
+* CT-03: প্রতিটি Key-এর উদ্দেশ্য আলাদা (Key Separation পর্যালোচনা চেকলিস্ট)।
+* CT-04: ব্যাকআপ ভুল Key দিয়ে খোলে না, সঠিক Key-তে খোলে; Tamper করা ব্যাকআপ প্রত্যাখ্যাত।
+* CT-05: Test Vector (স্ট্যান্ডার্ড) দিয়ে ব্যবহৃত Primitive যাচাই।
+
+### 26.3 Messaging
+
+* MT-01: দুই অ্যাকাউন্টের মধ্যে বার্তা এনক্রিপ্টেডভাবে পৌঁছায় ও ডিক্রিপ্ট হয়।
+* MT-02: Backend DB ও Log-এ বার্তার Plaintext অনুসন্ধানে মেলে না।
+* MT-03: প্রাপক অফলাইনে থাকলে অনলাইনে এসে বার্তা পায়।
+* MT-04: একই বার্তা নেটওয়ার্ক পুনঃচেষ্টায় Duplicate দেখায় না।
+* MT-05: Sent / Accepted / Delivered / Read চারটি পৃথক অবস্থা।
+* MT-06: প্রাপকের Identity Key বদলালে প্রেরক সতর্কতা পায়।
+* MT-07: Revoke করা Installation আর নতুন বার্তা গ্রহণ করে না।
+* MT-08: অপরিচিত প্রেরকের বার্তা Requests-এ যায় এবং Read Receipt যায় না।
+* MT-09: Attachment ভুল Key দিয়ে ডিক্রিপ্ট হয় না; মেয়াদ শেষে অ্যাক্সেস বন্ধ।
+
+### 26.4 Web ও Platform
+
+* WT-01: CSP Violation শূন্য সাধারণ ব্যবহারে।
+* WT-02: তৃতীয়-পক্ষ স্ক্রিপ্ট অ্যাপ Origin-এ লোড হয় না।
+* WT-03: iOS-এ ইনস্টল না করে ও ইনস্টল করে Push ও Storage আচরণ লিখিত।
+* WT-04: Offline-এ পাঠানো বার্তা Queue-তে থাকে ও অনলাইনে পাঠায়।
+* WT-05: Service Worker আপডেটের পর অ্যাপ সঠিকভাবে চলে, পুরনো Cache বিরোধ করে না।
+* WT-06: ডেটা মুছে গেলে (Storage Eviction অনুকরণ) ব্যাকআপ থেকে পুনরুদ্ধার কাজ করে।
+
+### 26.5 Accessibility ও UX
+
+* UT-01: সব Interactive উপাদান Keyboard দিয়ে ব্যবহারযোগ্য, Focus দৃশ্যমান।
+* UT-02: কনট্রাস্ট রেশিও পাস (স্বয়ংক্রিয় ও ম্যানুয়াল)।
+* UT-03: Screen Reader-এ বার্তা ও Alert ঘোষণা হয়।
+* UT-04: `prefers-reduced-motion` সম্মানিত।
+* UT-05: বাংলা-ইংরেজি মিশ্র টেক্সট ঠিকমতো রেন্ডার হয়।
+
+### 26.6 Smart Contract (Phase 6)
+
+* SC-01: Access Control লঙ্ঘন প্রচেষ্টা revert করে।
+* SC-02: Fuzz ও Invariant টেস্ট পাস।
+* SC-03: Reentrancy টেস্ট।
+* SC-04: Gas সীমা ও ফি অনুমান যাচাই।
+
+### PART 27 — Risk Register v2 (অতিরিক্ত ঝুঁকি)
+
+| ID | ঝুঁকি | সম্ভাবনা | প্রভাব | প্রশমন |
+| -- | ----- | -------- | ------ | ------- |
+| R01 | XMTP Passkey সাপোর্ট না থাকায় মূল পরিকল্পনা আটকে যাওয়া | মধ্যম | উচ্চ | Spike S1, ADR-001 বিকল্প |
+| R02 | XMTP বা তৃতীয়-পক্ষ নেটওয়ার্কে নির্ভরতা (বন্ধ, মূল্য, নীতি পরিবর্তন) | মধ্যম | উচ্চ | Protocol Adapter Abstraction, বিকল্প প্রোটোকল মূল্যায়ন |
+| R03 | Browser SDK ডেটাবেস অনএনক্রিপ্টেড | নিশ্চিত (বর্তমানে) | মধ্যম–উচ্চ | ADR-003, সৎ প্রকাশ, Native বিকল্প |
+| R04 | Passkey/Recovery Key হারিয়ে স্থায়ী ডেটা ক্ষতি | উচ্চ | উচ্চ | একাধিক Authenticator, Onboarding-এ বাধ্যতামূলক ধাপ, স্পষ্ট শিক্ষা |
+| R05 | ডোমেইন হারানো বা দখল | নিম্ন | অত্যন্ত উচ্চ | Registrar Lock, DNSSEC, Auto-renew, ২FA, Related Origin পরিকল্পনা |
+| R06 | দূষিত JS সরবরাহ (Web Delivery) | নিম্ন–মধ্যম | অত্যন্ত উচ্চ | PART 22.1 |
+| R07 | iOS-এ স্টোরেজ ইভিকশনে ডেটা হারানো | মধ্যম | উচ্চ | ব্যাকআপ, ইনস্টল-নির্দেশনা |
+| R08 | AI-জনিত কোড-ত্রুটি, নকল নিরাপত্তা, অসম্পূর্ণ মডিউল | উচ্চ | উচ্চ | কঠোর Review, Test বাধ্যতামূলক, "কখনো বানানো টেস্ট ফল নয়" নিয়ম |
+| R09 | আইনি/নিয়ন্ত্রক ঝুঁকি (ক্রিপ্টো, বেআইনি কনটেন্ট) | মধ্যম | উচ্চ | আইনি পর্যালোচনা, Non-custodial, রিপোর্টিং ব্যবস্থা |
+| R10 | Username দখল ও Impersonation | উচ্চ | মধ্যম | PART 23.6, PART 20 |
+| R11 | Scope Creep (সব ফিচার একসঙ্গে) | উচ্চ | উচ্চ | MVP সীমা, Feature Flag, Phase Gate |
+| R12 | Infrastructure ব্যয় বৃদ্ধি (Relay, Storage, Push, RPC) | মধ্যম | মধ্যম | খরচ মডেলিং Spike S6, মনিটরিং |
+| R13 | একক ডেভেলপার/AI-এর ওপর নির্ভরতা, জ্ঞান হারানো | মধ্যম | মধ্যম | ডকুমেন্টেশন নীতি (SECTION 18) |
+| R14 | Metadata Privacy প্রত্যাশা বনাম বাস্তবতার ফারাক | মধ্যম | উচ্চ | সৎ বার্তা, ADR-007 |
+
+### PART 28 — মালিকের জন্য খোলা প্রশ্ন (Open Questions)
+
+এই প্রশ্নগুলোর উত্তর ছাড়া কিছু সিদ্ধান্ত চূড়ান্ত করা যাবে না।
+
+* প্রথম লক্ষ্য বাজার কোথায় (দেশ/ভাষা)? এটি আইনি ও i18n সিদ্ধান্ত নির্ধারণ করবে।
+* প্রথম ব্যবহারকারী কারা (সাধারণ মানুষ, Web3 ব্যবহারকারী, প্রতিষ্ঠান)?
+* টিম কেমন (একা, সঙ্গে ডেভেলপার, নিরাপত্তা বিশেষজ্ঞ আছেন কি)? স্বাধীন অডিটের বাজেট আছে কি?
+* Hosting ও Infrastructure-এর মাসিক বাজেট কত?
+* কোনো আইনি সত্তা (কোম্পানি) আছে কি? Terms ও Privacy Policy কার নামে?
+* প্রথম সংস্করণে Native Mobile App কি পরিকল্পনায় আছে, নাকি শুধু PWA?
+* ইতিমধ্যে তৈরি HTML Prototype ও ব্র্যান্ড অ্যাসেট (লোগো, রং) কী কী আছে?
+* ব্যবসায়িক মডেলে Premium Username-এর বিক্রয় প্রথমে চালু হবে কি, নাকি Phase 6-এর পর?
+* Open Source (কোড প্রকাশ) কি পরিকল্পনায়? এটি বিশ্বাস ও Web Delivery সমস্যা কমাতে সাহায্য করে।
+* "TwinCercle" নামের ট্রেডমার্ক ও ডোমেইন (twincercle.com) নিবন্ধন সম্পূর্ণ কি?
+
+### PART 29 — MASTER CONTEXT ADDENDUM (Copy & Use)
+
+নিচের ব্লকটি PART 10-এর Master Prompt-এর **পরে** একই ফাইলে (CLAUDE.md বা AGENTS.md) যোগ করতে হবে। এটি SECTION 21-এর পর SECTION 22 থেকে চলতে থাকে। কোনো Section শিথিল করে না, শুধু যোগ করে।
+
+```markdown
+
+==================================================
+SECTION 22 — VERIFIED FINDINGS AND DECISION GATES
+==================================================
+
+The following facts were verified in November 2026 and
+must be re-verified against current official documentation
+before implementation.
+
+VERIFIED:
+- XMTP's primary identifier is an Inbox ID, not an
+  Ethereum address. An inbox can group several identities.
+- An inbox has an installation limit (10) and an identity
+  update limit (256). Losing local storage can burn
+  installations.
+- The XMTP Browser SDK local database is NOT encrypted.
+  Do not claim full local encryption.
+- Identity association sync currently relies on a service
+  operated by the protocol developer. Do not claim the
+  system is fully decentralized.
+- WebAuthn PRF can derive secrets from a passkey, but
+  support depends on browser, OS, AND passkey provider.
+  Always use runtime feature detection and provide a
+  fallback.
+- A passkey used as an encryption root can cause permanent
+  data loss if deleted. Require multiple authenticators
+  and a recovery key.
+- iOS PWA: web push needs home-screen installation;
+  storage of non-installed sites can be evicted; persistent
+  storage requests may be denied; Safari and the installed
+  PWA have separate storage.
+
+UNVERIFIED (DECISION GATES):
+- XMTP passkey identity support. Sources conflict.
+  Do not design identity or messaging until Spike S1
+  produces an approved report.
+- WebAuthn Level 3 final W3C status. Verify at w3.org.
+
+Do not build on UNVERIFIED items. Run the Spike first.
+
+==================================================
+SECTION 23 — ARCHITECTURE DECISION RECORDS
+==================================================
+
+Record every major decision in docs/DECISIONS.md using
+the ADR template. Status values: PROPOSED, ACCEPTED,
+DEPRECATED, SUPERSEDED.
+
+ADR-001 (messaging identity foundation) and ADR-003
+(local data protection) and ADR-006 (WebAuthn RP ID and
+domain strategy) are DECISION GATES. Do not proceed past
+Phase 0 without owner approval of these.
+
+If your implementation requires deviating from an ACCEPTED
+ADR, stop and explain the conflict first.
+
+==================================================
+SECTION 24 — KEY, RECOVERY AND IDENTITY RULES
+==================================================
+
+1. Account creation must not complete without at least two
+   independent recovery paths: a second authenticator or
+   a recovery key. Show a persistent reminder until done.
+2. The recovery key is generated client-side, displayed
+   once, and never sent to the server or logged.
+3. There is no server-side escrow and no support-team
+   recovery bypass. Make this clear to users in plain
+   language in Bengali and English.
+4. Recovery activation triggers alerts on all remaining
+   devices and a cooling-off delay.
+5. Sensitive actions require step-up authentication
+   (device revoke, recovery change, wallet link/unlink,
+   account deletion).
+6. Username to inbox mappings must be signed by the user.
+   The server alone must never be able to silently
+   re-point a username. Clients must warn on identity
+   changes.
+
+==================================================
+SECTION 25 — WEB DELIVERY TRUST RULES
+==================================================
+
+The server delivers the JavaScript that handles the keys.
+This is the largest trust risk of a web E2EE app.
+
+- Strict CSP: no inline scripts, no third-party scripts on
+  the app origin.
+- Subresource Integrity for any external asset.
+- Pinned dependencies, lockfile, audit in CI, reproducible
+  builds, published release hashes.
+- Two-person approval for production releases.
+- Keep the marketing site and the app on separate origins.
+- Never add analytics, ads, chat widgets, or tag managers
+  to the app origin.
+
+==================================================
+SECTION 26 — PRIVACY AND DATA RULES
+==================================================
+
+- Only collect data listed in the data inventory
+  (docs/PRIVACY.md). Update the inventory before collecting
+  anything new.
+- No message content or message-derived events in analytics.
+- Redact keys, tokens, addresses, and message bodies from
+  all logs and error reports.
+- Push notification payloads contain no sender or content.
+- No address book or contact upload in v1.
+- No enumeration APIs. Rate-limit username lookups.
+- Never claim "fully decentralized" or "serverless".
+  Use "hybrid" and be specific about who operates what.
+
+==================================================
+SECTION 27 — USERNAME RULES (PROPOSED, PENDING OWNER)
+==================================================
+
+- 3 to 30 characters, a-z, 0-9, and . _ -
+- No leading or trailing punctuation, no consecutive
+  punctuation.
+- Case-insensitive, stored lowercase, unique constraint
+  at the database level.
+- ASCII only initially (homoglyph and confusable
+  protection). Add Unicode only with confusable detection.
+- Reserved names list enforced server-side.
+- Rename cooldown and a quarantine period after release.
+
+==================================================
+SECTION 28 — SPIKES BEFORE COMMITMENT
+==================================================
+
+Before building the layer that depends on it, complete the
+matching spike and write docs/spikes/S#.md with the
+question, method, result, and recommendation:
+
+S1 XMTP passkey/inbox identity feasibility.
+S2 WebAuthn PRF support matrix across browsers, OS,
+   passkey providers.
+S3 Browser SDK local database protection options.
+S4 iOS PWA push and storage behavior on a real device.
+S5 Blockchain network comparison (not applied until
+   Phase 6).
+S6 Messaging reliability and cost: XMTP versus Waku.
+
+Do not present results from a spike you did not run.
+State clearly what was tested, on which device, and
+what was not tested.
+
+==================================================
+SECTION 29 — DEFINITION OF DONE (VERSION 2)
+==================================================
+
+A task is done only when ALL of the following are true:
+
+1. Behavior works and failure cases are handled.
+2. Tests were actually run and the real results reported.
+3. Relevant Threat Table items and test catalog entries
+   (docs/TESTING.md) are covered.
+4. No secret, key, token, or message body appears in logs,
+   fixtures, or commits.
+5. Accessibility basics pass (keyboard, focus, contrast).
+6. Bengali and English strings are present, with no
+   hardcoded UI text.
+7. Documentation, ADRs, and AI_CONTEXT.md are updated in
+   the same change.
+8. A rollback path exists.
+9. Limitations and unverified assumptions are listed
+   honestly.
+
+==================================================
+SECTION 30 — COMMUNICATION RULES FOR THE AI
+==================================================
+
+- Be precise and scoped. Make the smallest complete change
+  with no unintended side effects.
+- If a requirement is ambiguous, state your assumption and
+  ask before touching security-critical code.
+- Distinguish clearly between: implemented, tested,
+  designed-but-not-built, and assumed.
+- Never state that something is secure. State what was
+  tested and what remains unreviewed.
+- When facts about external libraries or protocols matter,
+  check current official documentation and say what you
+  checked and when.
+- Keep reports short and structured: what changed, files,
+  tests run with real results, risks, next step.
+
+END OF ADDENDUM.
+```
+
+### PART 30 — চূড়ান্ত নির্দেশনা (Extension সমাপ্তি)
+
+* এই ডকুমেন্ট একটি জীবন্ত ডকুমেন্ট। প্রতিটি Spike ও ADR-এর পর সংশ্লিষ্ট Status Label হালনাগাদ করতে হবে।
+* "VERIFIED" তথ্যের তারিখ আছে। প্রতি কয়েক মাস অন্তর বা বাস্তবায়নের আগে পুনরায় যাচাই করতে হবে।
+* কোনো ডকুমেন্ট স্বাধীন নিরাপত্তা অডিটের বিকল্প নয়। প্রোডাকশনের আগে অডিট বাধ্যতামূলক।
+* সবচেয়ে গুরুত্বপূর্ণ প্রথম ধাপ: Spike S1 ও S2 সম্পন্ন করে ADR-001 ও ADR-003 অনুমোদন করা।
+
+**পরবর্তী সুপারিশকৃত কাজ:** PART 28-এর খোলা প্রশ্নগুলোর উত্তর দেওয়া, তারপর Phase 0 Backlog (PART 25.1) অনুযায়ী `CLAUDE.md` এবং `docs/` ফাইল তৈরি করা।
+
+**END OF EXTENSION VOLUME.**
