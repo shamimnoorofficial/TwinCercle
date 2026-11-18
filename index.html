@@ -53,7 +53,13 @@ button{touch-action:manipulation}
   .hero-art{width:58px;height:70px}
   .hero-art svg{width:58px}
   .hero-actions .btn{white-space:normal}
-  .grid.cols-2,.grid.cols-3,.grid.cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid.cols-2,.grid.cols-3{grid-template-columns:minmax(0,1fr)}
+  .grid.cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .span-2{grid-column:auto}
+  .notice{overflow-wrap:anywhere}
+  .tag{max-width:100%;overflow-wrap:anywhere;white-space:normal}
+  .card-title{flex-wrap:wrap}
+  .form-field .field,.form-field .select{min-width:0;max-width:100%}
   .split{grid-template-columns:minmax(0,1fr)}
   .listing-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
   .listing-visual{height:clamp(92px,27vw,122px)}
@@ -97,7 +103,8 @@ button{touch-action:manipulation}
   .top-actions .icon-btn{width:32px;height:32px}
   .page-wrap{padding-inline:10px}
   .hero-art{display:none}
-  .grid.cols-2,.grid.cols-3,.grid.cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid.cols-2,.grid.cols-3{grid-template-columns:minmax(0,1fr)}
+  .grid.cols-4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .stat-card{gap:7px;padding:9px;min-height:72px}
   .stat-icon{width:29px;height:29px}
   .stat-card .num{font-size:17px}
